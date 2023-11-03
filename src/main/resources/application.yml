@@ -1,0 +1,9 @@
+logging:
+  level:
+    root: DEBUG
+    com.example.backofficeproject: DEBUG
+    org.apache.http: INFO
+    org.apache.http.headers: INFO
+    org.apache.http.wire: INFO
+    org.hibernate.validator: INFO
+    org.springframework: INFO
