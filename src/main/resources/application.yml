@@ -1,6 +1,42 @@
+security.basic.enabled: false
+spring:
+  application:
+    name: backofficeProject
+  #  jackson:
+  #    property-naming-strategy: SNAKE_CASE
+  #    serialization:
+  #      indent-output: true
+  #      write-dates-as-timestamps: false
+  #      write-null-map-values: false
+  http:
+    charset: UTF-8
+    enabled: true
+    force: true
+#  datasource:
+#    url: ENC(Gn8fzoUM+8bpAC4vHzHVvIWDLMYbg0I4hs6uOX2AJHRTDfQCtK7qdLmDX2EoWuXe)
+#    driver-class-name: org.mariadb.jdbc.Driver
+#    username: ENC(aooTfy+5OK77f0JA65EGNg==)
+#    password: ENC(bIvcxFd15KxqWW1kDXOdDhWAqLS6Utnr)
+#    hikari:
+#      connection-timeout: 3000
+#      validation-timeout: 3000
+#      minimum-idle: 10
+#      maximum-pool-size: 50
+#      idle-timeout: 30000
+#      max-lifetime: 240000
+#      pool-name: oracleHikariCP
+#      connection-init-sql: SELECT 1 FROM DUAL
+#      connection-test-query: SELECT 1 FROM DUAL
+#      transaction-isolation: TRANSACTION_READ_UNCOMMITTED
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+    check-template-location: true
+    encoding: UTF-8
 logging:
   level:
-    root: DEBUG
+#    root: DEBUG
     com.example.backofficeproject: DEBUG
     org.apache.http: INFO
     org.apache.http.headers: INFO
