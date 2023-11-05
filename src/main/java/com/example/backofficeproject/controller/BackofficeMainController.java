@@ -18,4 +18,16 @@ public class BackofficeMainController {
         System.out.println("login");
         return "login";
     }
+
+    @GetMapping(value = {"/admin/index"})
+    public String admin(){
+        System.out.println("admin");
+        return "admin/index";
+    }
+
+    @GetMapping(value = {"/user/index"})
+    public String user(){
+        System.out.println("user");
+        return "user/index";
+    }
 }

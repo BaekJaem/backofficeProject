@@ -1,5 +1,6 @@
 package com.example.backofficeproject.security;
 
+import com.example.backofficeproject.domain.Role;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,9 +38,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
 //                                .requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers("/", "/login/**").permitAll()
-//                                .requestMatchers("/posts/**", "/api/v1/posts/**").hasRole(Role.USER.name())
-//                                .requestMatchers("/admins/**", "/api/v1/admins/**").hasRole(Role.ADMIN.name())
+                                .requestMatchers("/", "/").permitAll()
+                                .requestMatchers("/user/**", "/user/**").hasRole(Role.USER.name())
+                                .requestMatchers("/admin/**", "/admin/**").hasRole(Role.ADMIN.name())
                                 .anyRequest().authenticated()
                 )// 3번
                 .exceptionHandling((exceptionConfig) ->
@@ -51,7 +52,7 @@ public class SecurityConfig {
 
     private final AuthenticationEntryPoint unauthorizedEntryPoint =
             (request, response, authException) -> {
-                ErrorResponse fail = new ErrorResponse(HttpStatus.UNAUTHORIZED, "Spring security unauthorized...");
+                ErrorResponse fail = new ErrorResponse(HttpStatus.UNAUTHORIZED, "권한이없습니다.");
                 response.setStatus(HttpStatus.UNAUTHORIZED.value());
                 String json = new ObjectMapper().writeValueAsString(fail);
                 response.setContentType(MediaType.APPLICATION_JSON_VALUE);
