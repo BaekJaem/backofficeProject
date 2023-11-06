@@ -39,6 +39,7 @@ public class SecurityConfig {
                         authorizeRequests
 //                                .requestMatchers(PathRequest.toH2Console()).permitAll()
                                 .requestMatchers("/", "/").permitAll()
+                                .requestMatchers("/test/**", "/test/**").hasRole(Role.USER.name())
                                 .requestMatchers("/user/**", "/user/**").hasRole(Role.USER.name())
                                 .requestMatchers("/admin/**", "/admin/**").hasRole(Role.ADMIN.name())
                                 .anyRequest().authenticated()

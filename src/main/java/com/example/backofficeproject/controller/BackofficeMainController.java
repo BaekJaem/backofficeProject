@@ -30,4 +30,16 @@ public class BackofficeMainController {
         System.out.println("user");
         return "user/index";
     }
+
+    @GetMapping(value = {"/test/index"})
+    public String test(){
+        System.out.println("user");
+        return "test/index";
+    }
+
+    @GetMapping(value = {"/test"})
+    public String test1(){
+        System.out.println("user");
+        return "test/index";
+    }
 }
